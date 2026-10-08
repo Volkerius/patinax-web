@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Watch {
+  id              String   @id @default(cuid())
+  apiId           String   @unique
+  brand           String
+  model           String
+  reference       String?
+  year            Int?
+  caseDiameter    Float?
+  caseThickness   Float?
+  waterResistance Int?
+  movement        String?
+  caliber         String?
+  powerReserve    Int?
+  caseMaterial    String?
+  bezelMaterial   String?
+  crystal         String?
+  frequency       Float?
+  jewels          Int?
+  cosc            Boolean  @default(false)
+  priceRange      Int      @default(3) // 1-5 price tier
+  brandTier       Int      @default(3) // 1-5 brand prestige (independent of price)
+  style           String   @default("sport") // diver, dress, sport, pilot, field, chrono
+  imageUrl        String?
+  description     String?
+  slug            String   @unique
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  comparisonsAsA Comparison[]   @relation("WatchA")
+  comparisonsAsB Comparison[]   @relation("WatchB")
+  favorites      UserFavorite[]
+
+  @@index([brand])
+  @@index([slug])
+  @@index([priceRange])
+}
+
+model Comparison {
+  id        String   @id @default(cuid())
+  watchAId  String
+  watchBId  String
+  slug      String   @unique
+  viewCount Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  watchA Watch @relation("WatchA", fields: [watchAId], references: [id])
+  watchB Watch @relation("WatchB", fields: [watchBId], references: [id])
+
+  @@index([watchAId])
+  @@index([watchBId])
+  @@index([viewCount])
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  avatarUrl String?
+  createdAt DateTime @default(now())
+
+  favorites UserFavorite[]
+}
+
+model UserFavorite {
+  id        String   @id @default(cuid())
+  userId    String
+  watchId   String
+  createdAt DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id])
+  watch Watch @relation(fields: [watchId], references: [id])
+
+  @@unique([userId, watchId])
+  @@index([watchId])
+}

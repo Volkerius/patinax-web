@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #f0ece4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
+
+  /* Patinax color palette */
+  --color-patina-bg: #0a0a0a;
+  --color-patina-bg2: #111111;
+  --color-patina-bg3: #161616;
+  --color-patina-border: rgba(255, 255, 255, 0.07);
+  --color-patina-border2: rgba(255, 255, 255, 0.13);
+  --color-patina-gold: #c9a84c;
+  --color-patina-gold2: #e8c97a;
+  --color-patina-text: #f0ece4;
+  --color-patina-text2: #8a8578;
+  --color-patina-text3: #5a5650;
+
+  /* Font families */
+  --font-playfair: var(--font-playfair-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), Arial, Helvetica, sans-serif;
+}
+
+/* Force lining (uniform-height) numerals on Playfair Display everywhere */
+.font-playfair,
+[class*="font-playfair"] {
+  font-variant-numeric: lining-nums;
+}
+
+/* Hide Next.js development badge */
+nextjs-portal {
+  display: none !important;
+}
+
+/* Baseline focus ring — only appears for keyboard users (not mouse clicks).
+   Interactive elements that already set their own focus-visible style will
+   override this via specificity. */
+*:focus-visible {
+  outline: 2px solid var(--color-patina-gold);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth scroll for in-page anchor navigation. */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Respect prefers-reduced-motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Themed scrollbar (WebKit / Blink) — sits better with the dark palette. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-patina-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-patina-bg3);
+  border-radius: 6px;
+  border: 2px solid var(--color-patina-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-patina-border2);
+}
+* {
+  scrollbar-color: var(--color-patina-bg3) var(--color-patina-bg);
+  scrollbar-width: thin;
+}
+
+/* Selection colour in site brand gold. */
+::selection {
+  background: rgba(201, 168, 76, 0.3);
+  color: var(--color-patina-text);
+}

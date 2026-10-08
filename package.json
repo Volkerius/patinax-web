@@ -1,0 +1,38 @@
+{
+  "name": "patinax",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "prisma generate && next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@supabase/auth-helpers-nextjs": "^0.15.0",
+    "@supabase/supabase-js": "^2.100.1",
+    "chart.js": "^4.5.1",
+    "framer-motion": "^12.38.0",
+    "next": "16.2.1",
+    "next-seo": "^7.2.0",
+    "prisma": "^5.22.0",
+    "react": "19.2.4",
+    "react-chartjs-2": "^5.3.1",
+    "react-dom": "19.2.4",
+    "schema-dts": "^2.0.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.88.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "dotenv": "^17.4.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.1",
+    "p-limit": "^7.3.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

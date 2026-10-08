@@ -1,0 +1,17 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+<rect x="0" y="0" width="120" height="120" rx="24" fill="#C8912A"/>
+<circle cx="60" cy="60" r="43" fill="none" stroke="#1C1108" stroke-width="2"/>
+<rect x="56.5" y="17" width="7" height="13" rx="1" fill="#1C1108"/>
+<rect transform="rotate(90,60,60)" x="56.5" y="17" width="7" height="13" rx="1" fill="#1C1108"/>
+<rect transform="rotate(180,60,60)" x="56.5" y="17" width="7" height="13" rx="1" fill="#1C1108"/>
+<rect transform="rotate(270,60,60)" x="56.5" y="17" width="7" height="13" rx="1" fill="#1C1108"/>
+<rect transform="rotate(30,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect transform="rotate(60,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect transform="rotate(120,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect transform="rotate(150,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect transform="rotate(210,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect transform="rotate(240,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect transform="rotate(300,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect transform="rotate(330,60,60)" x="58" y="18" width="4" height="9" rx="0.5" fill="#1C1108"/>
+<rect x="103" y="57" width="9" height="6" rx="2" fill="#1C1108"/>
+</svg>

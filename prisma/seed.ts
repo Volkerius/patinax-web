@@ -1,0 +1,221 @@
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
+
+async function main() {
+  // Rolex Submariner Date 126610LN (2020–present)
+  const submariner = await prisma.watch.upsert({
+    where: { slug: 'rolex-submariner-date' },
+    update: {
+      caseDiameter: 41,
+      caseThickness: 12.5,
+      waterResistance: 300,
+      movement: 'Automatic',
+      caliber: 'Cal. 3235',
+      powerReserve: 70,
+      caseMaterial: 'Oystersteel',
+      bezelMaterial: 'Cerachrom ceramic',
+      crystal: 'Sapphire',
+      frequency: 4.0,
+      jewels: 31,
+      cosc: true,
+      priceRange: 4,
+      brandTier: 4,
+      style: 'diver',
+      imageUrl: null,
+    },
+    create: {
+      apiId: 'rolex-submariner-date-126610ln',
+      brand: 'Rolex',
+      model: 'Submariner Date',
+      reference: '126610LN',
+      year: 2020,
+      caseDiameter: 41,
+      caseThickness: 12.5,
+      waterResistance: 300,
+      movement: 'Automatic',
+      caliber: 'Cal. 3235',
+      powerReserve: 70,
+      caseMaterial: 'Oystersteel',
+      bezelMaterial: 'Cerachrom ceramic',
+      crystal: 'Sapphire',
+      frequency: 4.0,
+      jewels: 31,
+      cosc: true,
+      priceRange: 4,
+      brandTier: 4,
+      style: 'diver',
+      imageUrl: null,
+      slug: 'rolex-submariner-date',
+    },
+  })
+
+  // Omega Seamaster Diver 300M Co-Axial (2018–present)
+  const seamaster = await prisma.watch.upsert({
+    where: { slug: 'omega-seamaster-diver-300m' },
+    update: {
+      caseDiameter: 42,
+      caseThickness: 13.1,
+      waterResistance: 300,
+      movement: 'Automatic',
+      caliber: 'Co-Axial Master Chronometer 8800',
+      powerReserve: 55,
+      caseMaterial: 'Stainless steel',
+      bezelMaterial: 'Ceramic',
+      crystal: 'Sapphire',
+      frequency: 3.5,
+      jewels: 39,
+      cosc: true,
+      priceRange: 3,
+      brandTier: 3,
+      style: 'diver',
+      imageUrl: null,
+    },
+    create: {
+      apiId: 'omega-seamaster-diver-300m-8800',
+      brand: 'Omega',
+      model: 'Seamaster Diver 300M',
+      reference: '210.30.42.20.01.001',
+      year: 2018,
+      caseDiameter: 42,
+      caseThickness: 13.1,
+      waterResistance: 300,
+      movement: 'Automatic',
+      caliber: 'Co-Axial Master Chronometer 8800',
+      powerReserve: 55,
+      caseMaterial: 'Stainless steel',
+      bezelMaterial: 'Ceramic',
+      crystal: 'Sapphire',
+      frequency: 3.5,
+      jewels: 39,
+      cosc: true,
+      priceRange: 3,
+      brandTier: 3,
+      style: 'diver',
+      imageUrl: null,
+      slug: 'omega-seamaster-diver-300m',
+    },
+  })
+
+  await prisma.comparison.upsert({
+    where: { slug: 'rolex-submariner-vs-omega-seamaster' },
+    update: {},
+    create: {
+      watchAId: submariner.id,
+      watchBId: seamaster.id,
+      slug: 'rolex-submariner-vs-omega-seamaster',
+      viewCount: 0,
+    },
+  })
+
+  // Patek Philippe Nautilus 5711/1A
+  const nautilus = await prisma.watch.upsert({
+    where: { slug: 'patek-philippe-nautilus-5711' },
+    update: {
+      caseDiameter: 40,
+      caseThickness: 8.3,
+      waterResistance: 120,
+      movement: 'Automatic',
+      caliber: 'Cal. 26-330 S C',
+      powerReserve: 45,
+      caseMaterial: 'Stainless steel',
+      bezelMaterial: 'Stainless steel',
+      crystal: 'Sapphire',
+      frequency: 4.0,
+      jewels: 29,
+      cosc: false,
+      priceRange: 5,
+      brandTier: 5,
+      style: 'sport',
+      imageUrl: null,
+    },
+    create: {
+      apiId: 'patek-nautilus-5711-1a',
+      brand: 'Patek Philippe',
+      model: 'Nautilus 5711/1A',
+      reference: '5711/1A-010',
+      year: 2021,
+      caseDiameter: 40,
+      caseThickness: 8.3,
+      waterResistance: 120,
+      movement: 'Automatic',
+      caliber: 'Cal. 26-330 S C',
+      powerReserve: 45,
+      caseMaterial: 'Stainless steel',
+      bezelMaterial: 'Stainless steel',
+      crystal: 'Sapphire',
+      frequency: 4.0,
+      jewels: 29,
+      cosc: false,
+      priceRange: 5,
+      brandTier: 5,
+      style: 'sport',
+      imageUrl: null,
+      slug: 'patek-philippe-nautilus-5711',
+    },
+  })
+
+  // Audemars Piguet Royal Oak 15500ST
+  const royalOak = await prisma.watch.upsert({
+    where: { slug: 'audemars-piguet-royal-oak-15500' },
+    update: {
+      caseDiameter: 41,
+      caseThickness: 9.8,
+      waterResistance: 50,
+      movement: 'Automatic',
+      caliber: 'Cal. 4302',
+      powerReserve: 60,
+      caseMaterial: 'Stainless steel',
+      bezelMaterial: 'Stainless steel',
+      crystal: 'Sapphire',
+      frequency: 4.0,
+      jewels: 40,
+      cosc: false,
+      priceRange: 5,
+      brandTier: 5,
+      style: 'sport',
+      imageUrl: null,
+    },
+    create: {
+      apiId: 'ap-royal-oak-15500st',
+      brand: 'Audemars Piguet',
+      model: 'Royal Oak 15500ST',
+      reference: '15500ST.OO.1220ST.01',
+      year: 2022,
+      caseDiameter: 41,
+      caseThickness: 9.8,
+      waterResistance: 50,
+      movement: 'Automatic',
+      caliber: 'Cal. 4302',
+      powerReserve: 60,
+      caseMaterial: 'Stainless steel',
+      bezelMaterial: 'Stainless steel',
+      crystal: 'Sapphire',
+      frequency: 4.0,
+      jewels: 40,
+      cosc: false,
+      priceRange: 5,
+      brandTier: 5,
+      style: 'sport',
+      imageUrl: null,
+      slug: 'audemars-piguet-royal-oak-15500',
+    },
+  })
+
+  await prisma.comparison.upsert({
+    where: { slug: 'patek-philippe-nautilus-vs-audemars-piguet-royal-oak' },
+    update: {},
+    create: {
+      watchAId: nautilus.id,
+      watchBId: royalOak.id,
+      slug: 'patek-philippe-nautilus-vs-audemars-piguet-royal-oak',
+      viewCount: 0,
+    },
+  })
+
+  console.log('Seed complete')
+}
+
+main()
+  .catch(console.error)
+  .finally(() => prisma.$disconnect())
